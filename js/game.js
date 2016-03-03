@@ -1,8 +1,19 @@
 var Game = {
   resetEnemy: function() {
     this.enemyTop = -20;
-    var left = Math.floor(Math.random()*5) * 10;
-    this.enemy.css("left", left + "vmin");
+    this.enemyLeft = Math.floor(Math.random()*5) * 10;
+    this.enemy.css("left", this.enemyLeft + "vmin");
+  },
+  stopGame: function() {
+    clearInterval(this.animator);
+  },
+  checkCollision: function() {
+    if (this.enemyTop > 60) {
+      var diffLeft = Math.abs(this.carLeft - this.enemyLeft);
+      if (diffLeft < 10) {
+        this.stopGame();
+      }
+    }
   },
   moveEnemy: function() {
     if (this.enemyTop > 100) {
@@ -10,6 +21,7 @@ var Game = {
     }
     this.enemyTop += 1;
     this.enemy.css("top", this.enemyTop + "vmin");
+    this.checkCollision();
   },
   moveRight: function() {
     var _this = Game;
@@ -31,7 +43,7 @@ var Game = {
     this.carLeft = 0;
     this.resetEnemy();
     var _this = this;
-    setInterval(function(){
+    this.animator = setInterval(function(){
       _this.moveEnemy();
     }, 30);
 
