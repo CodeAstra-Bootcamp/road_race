@@ -9,6 +9,14 @@ body {
     position: relative;
     overflow: hidden;
 
+    #score {
+      color: #ecf0f1;
+      position: absolute;
+      right: 3vmin;
+      top: 3vmin;
+      font-size: 4vmin;
+    }
+
     img#my_car {
       width: 10vmin;
       position: absolute;

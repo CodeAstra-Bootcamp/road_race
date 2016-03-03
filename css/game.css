@@ -7,6 +7,12 @@ body {
     margin: 0 auto;
     position: relative;
     overflow: hidden; }
+    body #game #score {
+      color: #ecf0f1;
+      position: absolute;
+      right: 3vmin;
+      top: 3vmin;
+      font-size: 4vmin; }
     body #game img#my_car {
       width: 10vmin;
       position: absolute;

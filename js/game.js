@@ -15,7 +15,12 @@ var Game = {
       }
     }
   },
+  incrementScore: function() {
+    this.score += 1;
+    $('#score').html(this.score);
+  },
   moveEnemy: function() {
+    this.incrementScore();
     if (this.enemyTop > 100) {
       this.resetEnemy();
     }
@@ -42,6 +47,7 @@ var Game = {
     this.car = $('#my_car');
     this.carLeft = 0;
     this.resetEnemy();
+    this.score = 0;
     var _this = this;
     this.animator = setInterval(function(){
       _this.moveEnemy();
